@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MOVIE BROWSER</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="./index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/fb4e81fea9.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="l-container">
+        <nav class="nav-bar">
+          <div class="brand">
+            <span class="brand__name">Oscar J.</span>
+          </div>
+
+          <ul class="nav-bar__links">
+            <li class="nav-bar__link">
+              <a href="#">Home</a>
+            </li>
+
+            <li class="nav-bar__link">
+              <a href="./search.html">Search</a>
+            </li>
+
+            <li class="nav-bar__link">
+              <a href="">Contact Us</a>
+            </li>
+          </ul>
+
+          <button
+            class="nav-bar__toggle button button--bare"
+            onclick="openModal()"
+          >
+            <i class="fa-bars fa-solid"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <dialog class="modal" id="modal">
+     
+        <div class="modal__inner">
+          <h2 class="modal_title">Menu</h2>
+          <button
+            class="modal__close button button--bare"
+            onclick="closeModal()"
+          >
+            <i class="fa-xmark fa-solid"></i>
+          </button>
+
+          <nav class="modal__nav">
+            <h3>Navigation</h3>
+
+            <ul class="nav-modal__links">
+              <li class="nav-modal__link">
+                <a href="#">Home</a>
+              </li>
+
+              <li class="nav-modal__link">
+                <a href="./search.html">Search</a>
+              </li>
+
+              <li class="nav-modal__link"><a href="">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+      
+    </dialog>
+
+    <main class="home">
+      <div class="l-container">
+        <div class="home__inner">
+          <h1>World Entertainment Browsing Made for You</h1>
+
+          <form class="searchbar" id="searchbar">
+            <input type="text" class="searchbar__input" required />
+            <button class="searchbar__button button">
+              <i class="fa-magnifying-glass fa-solid"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

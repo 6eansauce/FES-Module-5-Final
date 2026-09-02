@@ -13,6 +13,43 @@
     ></script>
   </head>
   <body>
-    test
+    <header class="header">
+      <div class="l-container">
+        <nav class="nav-bar">
+          <div class="brand">
+            <span class="brand__name">Oscar J.</span>
+          </div>
+
+          <ul class="nav-bar__links">
+            <li>
+              <a class="nav-bar__link" href="./index.html">Home</a>
+            </li>
+
+            <li>
+              <a class="nav-bar__link" href="#">Search</a>
+            </li>
+
+            <li>
+              <a
+                class="button button--purple"
+                href=""
+                onclick="
+                  alert('This is a Contact button.');
+                  return false;
+                "
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+
+          <button
+            class="nav-bar__toggle button button--bare"
+            onclick="openModal()"
+          >
+            <i class="fa-bars fa-solid"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
   </body>
 </html>

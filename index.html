@@ -21,16 +21,24 @@
           </div>
 
           <ul class="nav-bar__links">
-            <li class="nav-bar__link">
-              <a href="#">Home</a>
+            <li>
+              <a class="nav-bar__link" href="#">Home</a>
             </li>
 
-            <li class="nav-bar__link">
-              <a href="./search.html">Search</a>
+            <li>
+              <a class="nav-bar__link" href="./search.html">Search</a>
             </li>
 
-            <li class="nav-bar__link">
-              <a href="">Contact Us</a>
+            <li>
+              <a
+                class="button button--purple"
+                href=""
+                onclick="
+                  alert('This is a Contact button.');
+                  return false;
+                "
+                >Contact Us</a
+              >
             </li>
           </ul>
 
@@ -45,43 +53,48 @@
     </header>
 
     <dialog class="modal" id="modal">
-     
-        <div class="modal__inner">
-          <h2 class="modal_title">Menu</h2>
-          <button
-            class="modal__close button button--bare"
-            onclick="closeModal()"
-          >
-            <i class="fa-xmark fa-solid"></i>
-          </button>
+      <div class="modal__inner">
+        <h2 class="modal__title">Menu</h2>
+        <button class="modal__close button button--bare" onclick="closeModal()">
+          <i class="fa-xmark fa-solid"></i>
+        </button>
 
-          <nav class="modal__nav">
-            <h3>Navigation</h3>
+        <nav class="modal__nav">
+          <h3>Navigation</h3>
 
-            <ul class="nav-modal__links">
-              <li class="nav-modal__link">
-                <a href="#">Home</a>
-              </li>
+          <ul class="modal__links">
+            <li class="modal__link">
+              <a href="#">Home</a>
+            </li>
 
-              <li class="nav-modal__link">
-                <a href="./search.html">Search</a>
-              </li>
+            <li class="modal__link">
+              <a href="./search.html">Search</a>
+            </li>
 
-              <li class="nav-modal__link"><a href="">Contact Us</a></li>
-            </ul>
-          </nav>
-        </div>
-      
+            <li class="modal__link"><a href="">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
     </dialog>
 
     <main class="home">
       <div class="l-container">
-        <div class="home__inner">
-          <h1>World Entertainment Browsing Made for You</h1>
+        <div class="home__inner l-grid">
+          <div class="home__header l-stack">
+            <h1 class="home__title">A Movie Browser Made for You</h1>
+            <p class="home__subtitle">
+              Start exploring world entertainment from home
+            </p>
+          </div>
 
-          <form class="searchbar" id="searchbar">
-            <input type="text" class="searchbar__input" required />
-            <button class="searchbar__button button">
+          <form class="searchbar searchbar--stack" id="searchbar">
+            <input
+              type="text"
+              class="searchbar__input"
+              placeholder="Search by movie title or keyword..."
+              required
+            />
+            <button class="searchbar__button button button--purple">
               <i class="fa-magnifying-glass fa-solid"></i>
             </button>
           </form>

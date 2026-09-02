@@ -24,6 +24,14 @@ ul {
   list-style-type: none;
 }
 
+a {
+  text-decoration-line: none;
+}
+
+:root {
+  --color-purple: rgb(115, 80, 115);
+}
+
 /* 
 
   UTILITIES
@@ -44,6 +52,15 @@ ul {
   margin-inline: auto;
 }
 
+.l-grid {
+  display: grid;
+}
+
+.l-stack {
+  display: flex;
+  flex-direction: column;
+}
+
 /* 
 
   COMPONENTS
@@ -52,7 +69,6 @@ ul {
 
 .button {
   cursor: pointer;
-  text-decoration-line: none;
 
   width: var(--button-width, max-content);
 
@@ -73,22 +89,38 @@ ul {
   --button-pb: 0;
 }
 
+.button--purple {
+  color: white;
+  background: var(--color-purple);
+}
+
 .nav-bar {
   --toggle-display: block;
   --links-display: none;
+  --button-font-size: 0.85rem;
+  --button-pb: 1.2em;
+  --button-pi: 2em;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 
-  font-size: 1rem;
-  padding-block: 1em;
+  font-size: 1.125rem;
+  padding-block: clamp(1.2em, 6vw, 2em);
 }
 
 .nav-bar__links {
   display: var(--links-display);
-  gap: 1em;
+
+  font-weight: 600;
+
+  gap: 1.5em;
+  letter-spacing: 0.02em;
+}
+
+.nav-bar__link {
+  color: var(--color-purple);
 }
 
 .nav-bar__toggle {
@@ -101,16 +133,101 @@ ul {
   --modal-margin: clamp(16px, 4vw, 32px);
 
   width: min(var(--modal-max), 100% - var(--modal-margin) * 2);
+
+  padding: 1rem;
+  border: 1px solid #efefef;
+  border-radius: 1rem;
   background: white;
 }
 
 .modal__inner {
   position: relative;
+
+  display: grid;
+  grid-template-columns: minmax(0, 300px);
+  justify-content: center;
+
+  gap: 1rem;
 }
 
 .modal__close {
   position: absolute;
   right: 0;
+
+  font-size: 1.2rem;
+}
+
+.modal__title {
+  text-align: center;
+}
+
+.searchbar {
+  --button-font-size: 2.5rem;
+  --button-pb: 0.25em;
+
+  font-size: 1rem;
+}
+
+.searchbar::placeholder {
+  font-size: inherit;
+}
+
+.searchbar--overlay {
+  position: relative;
+}
+
+.searchbar--stack {
+  --button-width: 100%;
+
+  display: grid;
+  gap: 1em;
+}
+
+.searchbar__input {
+  font-weight: 300;
+  font-size: inherit;
+  padding-inline: 1em;
+  padding-block: 1.2em;
+
+  overflow: hidden;
+  border: 1px #161616 solid;
+  border-radius: 9999px;
+}
+
+.searchbar__button {
+}
+
+/* 
+
+  HOME
+
+*/
+
+.home {
+  padding-block: 3rem;
+}
+
+.home__inner {
+  grid-template-columns: minmax(0, 730px);
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.home__header {
+  text-align: var(--header-text-align, left);
+  gap: 1.5rem;
+}
+
+.home__title {
+  font-size: 3.125rem;
+
+  text-transform: capitalize;
+}
+
+.home__subtitle {
+  font-size: 1.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 /* 
@@ -123,5 +240,13 @@ ul {
   .nav-bar {
     --toggle-display: none;
     --links-display: flex;
+  }
+
+  .searchbar--stack {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 150px);
+  }
+
+  .home {
+    --header-text-align: center;
   }
 }

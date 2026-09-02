@@ -13,9 +13,9 @@
     ></script>
   </head>
   <body>
-    <header class="header">
+    <header class="header header--search">
       <div class="l-container">
-        <nav class="nav-bar">
+        <nav class="nav-bar nav-bar--search">
           <div class="brand">
             <span class="brand__name">Oscar J.</span>
           </div>
@@ -31,7 +31,7 @@
 
             <li>
               <a
-                class="button button--purple"
+                class="button button--white"
                 href=""
                 onclick="
                   alert('This is a Contact button.');
@@ -49,6 +49,21 @@
             <i class="fa-bars fa-solid"></i>
           </button>
         </nav>
+
+        <div class="header__inner">
+          <h1 class="header__title">Browse Our Movies</h1>
+          <form class="searchbar searchbar--overlay" id="searchbar">
+            <input
+              type="text"
+              class="searchbar__input"
+              placeholder="Search by movie title or keyword..."
+              required
+            />
+            <button class="searchbar__button button button--bare">
+              <i class="fa-magnifying-glass fa-solid"></i>
+            </button>
+          </form>
+        </div>
       </div>
     </header>
   </body>

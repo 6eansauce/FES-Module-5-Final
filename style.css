@@ -34,12 +34,6 @@ a {
 
 /* 
 
-  UTILITIES
-
-*/
-
-/* 
-
   LAYOUT
 
 */
@@ -94,6 +88,21 @@ a {
   background: var(--color-purple);
 }
 
+.button--white {
+  color: var(--color-purple);
+  background: white;
+}
+
+.brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.brand__name {
+  color: currentColor;
+}
+
 .nav-bar {
   --toggle-display: block;
   --links-display: none;
@@ -120,12 +129,13 @@ a {
 }
 
 .nav-bar__link {
-  color: var(--color-purple);
+  color: currentColor;
 }
 
 .nav-bar__toggle {
-  display: var(--toggle-display);
   --button-font-size: 1.5rem;
+
+  display: var(--toggle-display);
 }
 
 .modal {
@@ -162,10 +172,9 @@ a {
 }
 
 .searchbar {
-  --button-font-size: 2.5rem;
-  --button-pb: 0.25em;
-
   font-size: 1rem;
+  display: grid;
+  align-items: center;
 }
 
 .searchbar::placeholder {
@@ -173,13 +182,17 @@ a {
 }
 
 .searchbar--overlay {
+  --button-pos: absolute;
+  --button-font-size: 2rem;
+
   position: relative;
 }
 
 .searchbar--stack {
   --button-width: 100%;
+  --button-font-size: 2.5rem;
+  --button-pb: 0.25em;
 
-  display: grid;
   gap: 1em;
 }
 
@@ -195,13 +208,36 @@ a {
 }
 
 .searchbar__button {
+  position: var(--button-pos, static);
+  right: 1rem;
 }
+
 
 /* 
 
-  HOME
+  SECTIONS
 
 */
+
+.header {
+  --header-fg: var(--color-purple);
+
+  color: var(--header-fg);
+  background: var(--header-bg);
+}
+
+.header--search {
+  --header-fg: white;
+  --header-bg: var(--color-purple);
+}
+
+.header__inner {
+  text-align: center;
+
+  display: grid;
+  grid-template-columns: minmax(0, 600px);
+  justify-content: center;
+}
 
 .home {
   padding-block: 3rem;

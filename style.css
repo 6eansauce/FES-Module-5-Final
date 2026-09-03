@@ -61,6 +61,16 @@ a {
 
 */
 
+.brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.brand__name {
+  color: currentColor;
+}
+
 .button {
   cursor: pointer;
 
@@ -93,16 +103,6 @@ a {
   background: white;
 }
 
-.brand {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.brand__name {
-  color: currentColor;
-}
-
 .nav-bar {
   --toggle-display: block;
   --links-display: none;
@@ -121,10 +121,9 @@ a {
 
 .nav-bar__links {
   display: var(--links-display);
+  gap: 1.5em;
 
   font-weight: 600;
-
-  gap: 1.5em;
   letter-spacing: 0.02em;
 }
 
@@ -172,46 +171,47 @@ a {
 }
 
 .searchbar {
-  font-size: 1rem;
-  display: grid;
-  align-items: center;
-}
+  --gtc: minmax(0, 1fr);
 
-.searchbar::placeholder {
-  font-size: inherit;
+  display: grid;
+  grid-template-columns: var(--gtc);
+
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  gap: 1em;
 }
 
 .searchbar--overlay {
   --button-pos: absolute;
-  --button-font-size: 2rem;
+  --button-color: var(--color-purple);
+  --input-border: none;
 
   position: relative;
+  align-items: center;
 }
 
 .searchbar--stack {
+  --button-pb: 0.2em;
+  --button-pi: 0;
   --button-width: 100%;
-  --button-font-size: 2.5rem;
-  --button-pb: 0.25em;
-
-  gap: 1em;
+  --input-border: 1px #161616 solid;
 }
 
 .searchbar__input {
-  font-weight: 300;
   font-size: inherit;
-  padding-inline: 1em;
+  font-weight: 300;
+
+  padding-inline: 1em 4em;
   padding-block: 1.2em;
 
-  overflow: hidden;
-  border: 1px #161616 solid;
+  border: var(--input-border);
   border-radius: 9999px;
 }
 
 .searchbar__button {
-  position: var(--button-pos, static);
+  position: var(--button-pos);
   right: 1rem;
+  font-size: 2em;
 }
-
 
 /* 
 
@@ -232,11 +232,20 @@ a {
 }
 
 .header__inner {
-  text-align: center;
-
   display: grid;
   grid-template-columns: minmax(0, 600px);
   justify-content: center;
+
+  text-align: center;
+
+  padding-block: 2rem 4rem;
+  gap: 2rem;
+}
+
+.header__title {
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
 }
 
 .home {
@@ -250,13 +259,12 @@ a {
 }
 
 .home__header {
-  text-align: var(--header-text-align, left);
   gap: 1.5rem;
+  text-align: var(--header-text-align, left);
 }
 
 .home__title {
   font-size: 3.125rem;
-
   text-transform: capitalize;
 }
 
@@ -278,8 +286,12 @@ a {
     --links-display: flex;
   }
 
+  .searchbar {
+    --button-pb: 0;
+  }
+
   .searchbar--stack {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 150px);
+    --gtc: minmax(0, 1fr) minmax(0, 150px);
   }
 
   .home {

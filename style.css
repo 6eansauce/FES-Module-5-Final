@@ -29,6 +29,8 @@ a {
 }
 
 :root {
+  --color-base-bg: rgb(239, 239, 239);
+  --color-base-white: rgb(255, 255, 255);
   --color-purple: rgb(115, 80, 115);
 }
 
@@ -42,7 +44,7 @@ a {
   --container-max: 1280px;
   --container-padding: clamp(16px, 4vw, 32px);
 
-  width: min(100% - var(--container-padding) * 2, var(--container-max));
+  width: min(var(--container-max), calc(100% - var(--container-padding) * 2));
   margin-inline: auto;
 }
 
@@ -77,14 +79,14 @@ a {
   width: var(--button-width, max-content);
 
   font-size: var(--button-font-size, 1rem);
-  padding-block: var(--button-pb, 0.8em);
-  padding-inline: var(--button-pi, 1em);
+  padding-block: var(--button-pb, 1.2em);
+  padding-inline: var(--button-pi, 2em);
 
   border: none;
   border-radius: 9999px;
 
   color: var(--button-color, currentcolor);
-  background: var(--button-bg, #efefef);
+  background: var(--button-bg, var(--color-base-bg));
 }
 
 .button--bare {
@@ -94,21 +96,20 @@ a {
 }
 
 .button--purple {
-  color: white;
+  color: var(--color-base-white);
   background: var(--color-purple);
 }
 
 .button--white {
   color: var(--color-purple);
-  background: white;
+  background: var(--color-base-white);
 }
 
-.nav-bar {
-  --toggle-display: block;
+.navbar {
   --links-display: none;
-  --button-font-size: 0.85rem;
-  --button-pb: 1.2em;
-  --button-pi: 2em;
+  --toggle-display: block;
+  --toggle-font-size: 1.2em;
+  --button-font-size: 0.8em;
 
   display: flex;
   flex-direction: row;
@@ -119,29 +120,28 @@ a {
   padding-block: clamp(1.2em, 6vw, 2em);
 }
 
-.nav-bar__links {
+.navbar__links {
   display: var(--links-display);
-  gap: 1.5em;
 
   font-weight: 600;
   letter-spacing: 0.02em;
+  gap: 1.5em;
 }
 
-.nav-bar__link {
+.navbar__link {
   color: currentColor;
 }
 
-.nav-bar__toggle {
-  --button-font-size: 1.5rem;
-
+.navbar__toggle {
   display: var(--toggle-display);
+  font-size: var(--toggle-font-size);
 }
 
 .modal {
   --modal-max: 600px;
   --modal-margin: clamp(16px, 4vw, 32px);
 
-  width: min(var(--modal-max), 100% - var(--modal-margin) * 2);
+  width: min(var(--modal-max), calc(100% - var(--modal-margin) * 2));
 
   padding: 1rem;
   border: 1px solid #efefef;
@@ -281,7 +281,7 @@ a {
 */
 
 @media (min-width: 38rem) {
-  .nav-bar {
+  .navbar {
     --toggle-display: none;
     --links-display: flex;
   }

@@ -17,20 +17,27 @@ const main = () => {
 };
 
 const renderMovies = async () => {
+  const search = document.querySelector(".search");
   const value = localStorage.getItem("value");
   const moviesAPI = await fetch(
     `http://www.omdbapi.com/?apikey=aeff5dc2&s=${value}`,
   );
   const moviesArr = await moviesAPI.json();
-
   const moviesList = document.querySelector(".movies-list");
+
+  search.classList.add("search--loading");
   moviesList.innerHTML = moviesArr.Search.map((movie) =>
     getMovieHTML(movie),
   ).join("");
+
+  setTimeout(() => {
+    search.classList.remove("search--loading");
+  }, 1000);
 };
 
 const getMovieHTML = (movie) => {
-  return `<li class="movie">
+  return `
+  <li class="movie">
     <div class="movie__poster">
       <img class="img" src="${movie.Poster}" />
     </div>

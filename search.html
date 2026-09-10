@@ -94,15 +94,27 @@
       </div>
     </dialog>
 
-    <main class="search">
+    <main class="search search--loading">
       <div class="l-container">
         <div class="search__inner">
+          <div class="search__controls">
+            <span>Search results:</span>
 
+            <select name="" id="">
+              <option value="" selected disabled>Filter search</option>
+              <option value="">Alphabetical, A to Z</option>
+              <option value="">Year, Newest to oldest</option>
+            </select>
+          </div>
+
+          <span class="search__spinner spinner">
+            <i class="fa-solid fa-spinner"></i>
+          </span>
+
+          <ul class="movies-list">
+            <!-- Movies -->
+          </ul>
         </div>
-
-        <ul class="movies-list">
-          <!-- Movies -->
-        </ul>
       </div>
     </main>
   </body>

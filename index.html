@@ -6,7 +6,7 @@
     <title>MOVIE BROWSER</title>
     <link rel="stylesheet" href="style.css" />
 
-    <script src="./index.js"></script>
+    <script src="./index.js" defer></script>
     <script
       src="https://kit.fontawesome.com/fb4e81fea9.js"
       crossorigin="anonymous"
@@ -91,9 +91,11 @@
             <input
               type="text"
               class="searchbar__input"
+              id="searchbarInput"
               placeholder="Search by movie title or keyword..."
               required
             />
+
             <button class="searchbar__button button button--purple">
               <i class="fa-magnifying-glass fa-solid"></i>
             </button>

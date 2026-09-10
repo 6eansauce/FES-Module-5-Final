@@ -6,7 +6,7 @@
     <title>Search</title>
     <link rel="stylesheet" href="./style.css" />
 
-    <script src="./search.js"></script>
+    <script src="./search.js" defer></script>
     <script
       src="https://kit.fontawesome.com/fb4e81fea9.js"
       crossorigin="anonymous"
@@ -52,10 +52,12 @@
 
         <div class="header__inner">
           <h1 class="header__title">Browse Our Movies</h1>
+
           <form class="searchbar searchbar--overlay" id="searchbar">
             <input
               type="text"
               class="searchbar__input"
+              id="searchbarInput"
               placeholder="Search by movie title or keyword..."
               required
             />
@@ -92,8 +94,16 @@
       </div>
     </dialog>
 
-    <main>
-      <div class="l-container"></div>
+    <main class="search">
+      <div class="l-container">
+        <div class="search__inner">
+
+        </div>
+
+        <ul class="movies-list">
+          <!-- Movies -->
+        </ul>
+      </div>
     </main>
   </body>
 </html>

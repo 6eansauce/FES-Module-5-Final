@@ -1,5 +1,6 @@
 // http://www.omdbapi.com/?apikey=aeff5dc2&
 
+const moviesList = document.querySelector(".movies-list");
 const searchbar = document.getElementById("searchbar");
 
 searchbar.addEventListener("submit", (event) => {
@@ -23,7 +24,6 @@ const renderMovies = async () => {
     `http://www.omdbapi.com/?apikey=aeff5dc2&s=${value}`,
   );
   const moviesArr = await moviesAPI.json();
-  const moviesList = document.querySelector(".movies-list");
 
   search.classList.add("search--loading");
   moviesList.innerHTML = moviesArr.Search.map((movie) =>
@@ -48,6 +48,35 @@ const getMovieHTML = (movie) => {
     </div>
   </li>
   `;
+};
+
+const filterMovies = () => {
+  const filter = document.getElementById("filter");
+  const value = filter.value;
+  const movies = Array.from(document.querySelectorAll(".movie"));
+
+  if (value === "ALPHABETICAL") {
+    movies.sort((a, b) => {
+      const titleA = a
+        .querySelector(".movie__title")
+        .textContent.toLocaleLowerCase();
+      const titleB = b
+        .querySelector(".movie__title")
+        .textContent.toLocaleLowerCase();
+      return titleA.localeCompare(titleB);
+    });
+  } else if (value === "LATEST") {
+    movies.sort((a, b) => {
+      const yearA = parseInt(a.querySelector(".movie__year").textContent);
+      const yearB = parseInt(b.querySelector(".movie__year").textContent);
+      return yearB - yearA;
+    });
+  }
+
+  moviesList.innerHTML = "";
+  movies.forEach((movie) => {
+    moviesList.appendChild(movie);
+  });
 };
 
 const openModal = () => {

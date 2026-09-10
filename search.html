@@ -77,15 +77,15 @@
         </button>
 
         <nav class="modal__nav">
-          <h3>Navigation</h3>
+          <h3 class="modal__subtitle">Navigation</h3>
 
           <ul class="modal__links">
             <li class="modal__link">
-              <a href="#">Home</a>
+              <a href="./index.html">Home</a>
             </li>
 
             <li class="modal__link">
-              <a href="./search.html">Search</a>
+              <a href="#">Search</a>
             </li>
 
             <li class="modal__link"><a href="">Contact Us</a></li>
@@ -100,10 +100,10 @@
           <div class="search__controls">
             <span>Search results:</span>
 
-            <select name="" id="">
+            <select name="" id="filter" onchange="filterMovies()">
               <option value="" selected disabled>Filter search</option>
-              <option value="">Alphabetical, A to Z</option>
-              <option value="">Year, Newest to oldest</option>
+              <option value="ALPHABETICAL">Alphabetical, A to Z</option>
+              <option value="LATEST">Year, Newest to oldest</option>
             </select>
           </div>
 

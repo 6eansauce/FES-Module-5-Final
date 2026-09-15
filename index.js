@@ -6,7 +6,7 @@ searchbar.addEventListener("submit", (event) => {
   const searchbarInput = document.getElementById("searchbarInput");
   localStorage.setItem("value", searchbarInput.value);
 
-  window.location.href = `${window.location.origin}/search.html`;
+  window.location.href = `${window.location.origin}/FES-Module-5-Final/search.html`;
 });
 
 const openModal = () => {

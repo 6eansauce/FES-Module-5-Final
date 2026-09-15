@@ -21,7 +21,7 @@ const renderMovies = async () => {
   const search = document.querySelector(".search");
   const value = localStorage.getItem("value");
   const moviesAPI = await fetch(
-    `http://www.omdbapi.com/?apikey=aeff5dc2&s=${value}`,
+    `https://www.omdbapi.com/?apikey=aeff5dc2&s=${value}`,
   );
   const moviesArr = await moviesAPI.json();
 
